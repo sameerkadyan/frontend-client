@@ -1,0 +1,37 @@
+.why {
+  padding: 80px 20px;
+  background: white;
+  text-align: center;
+}
+
+.why-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #212529;
+}
+
+.why-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* Make cards equal height */
+.card {
+  height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .why-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .why-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,121 @@
+/* Full Page Background */
+.otp-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Card Design */
+.otp-card {
+  width: 380px;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Icon */
+.otp-logo {
+  font-size: 55px;
+  margin-bottom: 15px;
+}
+
+/* Heading */
+.otp-card h2 {
+  color: white;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+.otp-subtitle {
+  color: #d1d1d1;
+  font-size: 14px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Input Field */
+.otp-input {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  transition: 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Placeholder */
+.otp-input::placeholder {
+  color: #cccccc;
+  letter-spacing: normal;
+}
+
+/* Input Focus */
+.otp-input:focus {
+  border: 1px solid #00c6ff;
+  box-shadow: 0 0 12px rgba(0, 198, 255, 0.5);
+}
+
+/* Button */
+.verify-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Button Hover */
+.verify-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.4);
+}
+
+/* Button Active */
+.verify-btn:active {
+  transform: scale(0.98);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 450px) {
+  .otp-card {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .otp-card h2 {
+    font-size: 26px;
+  }
+}

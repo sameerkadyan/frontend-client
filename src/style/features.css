@@ -1,0 +1,37 @@
+.features {
+  padding: 80px 20px;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.features-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #212529;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Make cards uniform */
+.card {
+  height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .features-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+}
