@@ -15,7 +15,7 @@ const VerifyOTP = () => {
     try {
 
       const response = await fetch(
-        "http://localhost:5000/api/auth/verify-otp",
+        "https://backend-server-arp0.onrender.com/api/auth/verify-otp",
         {
           method: "POST",
 

@@ -17,7 +17,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const res = await authFetch(
-          "http://localhost:5000/api/auth/profile"
+          "https://backend-server-arp0.onrender.com/api/auth/profile"
         );
 
         if (!res.ok) {
@@ -49,7 +49,7 @@ const Profile = () => {
 
     try {
       const res = await authFetch(
-        "http://localhost:5000/api/auth/upload-profile",
+        "https://backend-server-arp0.onrender.com/api/auth/upload-profile",
         {
           method: "POST",
           body: formData,
