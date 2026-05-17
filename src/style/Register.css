@@ -1,0 +1,40 @@
+.register-wrapper {
+    display: flex;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.register-input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.register-footer {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.login-register-btn {
+    background: #63e01a;
+    font-size: small;
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #000;
+}

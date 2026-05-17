@@ -1,79 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { authFetch, logout } from "../utils/auth";
-import "../style/profile.css";
+import React from "react";
 
-const Profile = () => {
-  const [showImage, setShowImage] = useState(false);
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [open, setOpen] = useState(false);
-
-  const fileInputRef = useRef(null);
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const res = await authFetch(
-          "https://backend-server-arp0.onrender.com/api/auth/profile"
-        );
-
-        if (!res.ok) {
-          throw new Error("Unauthorized");
-        }
-
-        const data = await res.json();
-
-        setUser(data.user);
-      } catch (error) {
-        console.log(error);
-        navigate("/login");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProfile();
-  }, [navigate]);
-
-  // Upload profile image
-  const handleImageUpload = async (e) => {
-    const file = e.target.files[0];
-
-    if (!file) return;
-
-    const formData = new FormData();
-    formData.append("profilePhoto", file);
-
-    try {
-      const res = await authFetch(
-        "https://backend-server-arp0.onrender.com/api/auth/upload-profile",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setUser((prev) => ({
-          ...prev,
-          profilePhoto: data.profilePhoto,
-        }));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
-
+const ProfileNavbar = ({
+  user,
+  open,
+  setOpen,
+  showImage,
+  setShowImage,
+  fileInputRef,
+  handleImageUpload,
+  handleLogout,
+  loading,
+}) => {
   if (loading) return <p className="loading">Loading...</p>;
 
   return (
@@ -126,7 +63,6 @@ const Profile = () => {
                   </div>
                 </div>
 
-                {/* Upload Button */}
                 <button
                   className="upload-btn"
                   onClick={() => fileInputRef.current.click()}
@@ -142,10 +78,7 @@ const Profile = () => {
                   onChange={handleImageUpload}
                 />
 
-                <button
-                  className="logout-btn"
-                  onClick={handleLogout}
-                >
+                <button className="logout-btn" onClick={handleLogout}>
                   Logout
                 </button>
               </div>
@@ -156,12 +89,9 @@ const Profile = () => {
         )}
       </div>
 
-      {/* Full Image Preview */}
+      {/* Full Image */}
       {showImage && (
-        <div
-          className="image-modal"
-          onClick={() => setShowImage(false)}
-        >
+        <div className="image-modal" onClick={() => setShowImage(false)}>
           <img
             src={user.profilePhoto}
             alt="Full Profile"
@@ -169,10 +99,8 @@ const Profile = () => {
           />
         </div>
       )}
-
-
     </nav>
   );
 };
 
-export default Profile;
+export default ProfileNavbar;

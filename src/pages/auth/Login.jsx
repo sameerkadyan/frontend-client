@@ -1,7 +1,7 @@
 import React from "react";
 import LoginForm from "../../components/auth/LoginForm";
 import { useLogin } from "../../hooks/useLogin";
-import ".../style/Login.css"
+import "../../style/Login.css"
 
 const Login = () => {
   const { form, loading, handleChange, handleLogin } = useLogin();

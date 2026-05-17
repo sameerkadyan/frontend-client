@@ -32,7 +32,7 @@ const LoginForm = ({ form, loading, handleChange, handleLogin }) => {
         <p className="login-footer">
           Don't have an account?{" "}
           <span>
-            <Link to="/register">Register</Link>
+            <Link className="register-login-btn" to="/register">Register</Link>
           </span>
         </p>
 
