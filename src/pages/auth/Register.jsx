@@ -2,7 +2,7 @@ import React from "react";
 import RegisterForm from "../../components/auth/RegisterForm";
 import { useRegister } from "../../hooks/useRegister";
 
-import "../../style/Register.css";
+import "../../style/register.css";
 
 const Register = () => {
   const { form, handleChange, handleRegister } = useRegister();
