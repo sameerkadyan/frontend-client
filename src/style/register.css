@@ -1,40 +1,156 @@
+/* =========================
+   Register Page Styling
+========================= */
+
 .register-wrapper {
-    display: flex;
-    margin-top: 5%;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Card Styling */
+.register-wrapper .card {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 38px 32px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  animation: slideUp 0.7s ease;
+}
+
+/* Heading */
+.register-wrapper .card h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.register-wrapper .card p {
+  text-align: center;
+  color: #cbd5e1;
+  margin-bottom: 24px;
+}
+
+/* Inputs */
 .register-input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
+.register-input::placeholder {
+  color: #cbd5e1;
+}
+
+.register-input:focus {
+  border-color: #8b5cf6;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.45);
+}
+
+/* Button */
 .register-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #10b981;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.register-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  box-shadow: 0 10px 22px rgba(124, 58, 237, 0.4);
+}
+
+/* Footer */
 .register-footer {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: center;
+  margin-top: 22px;
+  text-align: center;
+  color: #e2e8f0;
+  font-size: 0.95rem;
 }
 
 .login-register-btn {
-    background: #63e01a;
-    font-size: small;
-    display: inline-block;
-    padding: 8px 16px;
-    text-decoration: none;
-    color: #000;
+  color: #a78bfa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.login-register-btn:hover {
+  color: #c4b5fd;
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 768px) {
+  .register-wrapper .card {
+    padding: 30px 24px;
+  }
+
+  .register-wrapper .card h2 {
+    font-size: 1.7rem;
+  }
+
+  .register-input,
+  .register-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-wrapper {
+    padding: 14px;
+  }
+
+  .register-wrapper .card {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .register-wrapper .card h2 {
+    font-size: 1.5rem;
+  }
+
+  .register-footer {
+    font-size: 0.85rem;
+  }
 }
