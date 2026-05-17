@@ -15,9 +15,7 @@ export const useProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await authFetch(
-          await getProfile()
-        );
+        const res = await getProfile();
 
         if (!res.ok) throw new Error("Unauthorized");
 
@@ -39,9 +37,7 @@ export const useProfile = () => {
     if (!file) return;
 
     try {
-      const res = await authFetch(
-        await uploadProfilePhoto(file)
-      );
+      const res = await uploadProfilePhoto(file);
 
       const data = await res.json();
 
