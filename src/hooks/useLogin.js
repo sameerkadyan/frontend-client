@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/authApi";
+import { setToken } from "../utils/auth";
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -32,7 +33,8 @@ export const useLogin = () => {
       if (response.ok) {
         alert("Login Successful 🎉");
 
-        localStorage.setItem("token", data.token);
+        // localStorage.setItem("token", data.token);
+        setToken(data.data.token);
 
         navigate("/students");
       } else {
