@@ -3,7 +3,7 @@ export const getProfile = async () => {
   const token = localStorage.getItem("token");
 
   return fetch(
-    "https://backend-server-arp0.onrender.com/api/auth/profile",
+    "https://backend-server-arp0.onrender.com/api/students/profile",
     {
       method: "GET",
       headers: {
