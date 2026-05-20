@@ -1,6 +1,7 @@
 export const getProfile = async () => {
 
   const token = localStorage.getItem("token");
+   console.log("TOKEN:", token);
 
   return fetch(
     "https://backend-server-arp0.onrender.com/api/students/profile",
