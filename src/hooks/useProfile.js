@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { authFetch, logout } from "../utils/auth";
+import { logout } from "../utils/auth";
 import { getProfile, uploadProfilePhoto } from "../api/profileApi";
 
 export const useProfile = () => {
@@ -10,6 +10,7 @@ export const useProfile = () => {
   const [open, setOpen] = useState(false);
 
   const fileInputRef = useRef(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,10 +18,17 @@ export const useProfile = () => {
       try {
         const res = await getProfile();
 
-        if (!res.ok) throw new Error("Unauthorized");
+        if (!res.ok) {
+          throw new Error("Unauthorized");
+        }
 
         const data = await res.json();
-        setUser(data.user);
+
+        console.log(data);
+
+        // FIX HERE
+        setUser(data.data);
+
       } catch (error) {
         console.log(error);
         navigate("/login");
@@ -34,6 +42,7 @@ export const useProfile = () => {
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
+
     if (!file) return;
 
     try {
