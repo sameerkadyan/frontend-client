@@ -23,7 +23,7 @@ export const uploadProfilePhoto = async (file) => {
   formData.append("profilePhoto", file);
 
   return fetch(
-    "https://backend-server-arp0.onrender.com/api/auth/upload-profile",
+    "https://backend-server-arp0.onrender.com/api/students/upload-profile",
     {
       method: "POST",
 
