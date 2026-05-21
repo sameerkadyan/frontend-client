@@ -20,6 +20,7 @@ const ProfileNavbar = ({
 
         {user ? (
           <div className="profile-navbar">
+
             {/* Avatar */}
             <div
               className="profile-avatar-wrapper"
@@ -41,8 +42,11 @@ const ProfileNavbar = ({
             {/* Dropdown */}
             {open && (
               <div className="profile-dropdown">
+
+                {/* Profile Info */}
                 <div className="dropdown-header">
                   <div className="dropdown-profile">
+
                     {user.profilePhoto ? (
                       <img
                         src={user.profilePhoto}
@@ -60,16 +64,21 @@ const ProfileNavbar = ({
                       <h4 className="profile-name">{user.name}</h4>
                       <p className="profile-email">{user.email}</p>
                     </div>
+
                   </div>
                 </div>
 
+                {/* Upload / Change Photo Button */}
                 <button
                   className="upload-btn"
                   onClick={() => fileInputRef.current.click()}
                 >
-                  Change Profile Photo
+                  {user.profilePhoto
+                    ? "Change Profile Photo"
+                    : "Add Profile Photo"}
                 </button>
 
+                {/* Hidden Input */}
                 <input
                   type="file"
                   accept="image/*"
@@ -78,9 +87,14 @@ const ProfileNavbar = ({
                   onChange={handleImageUpload}
                 />
 
-                <button className="logout-btn" onClick={handleLogout}>
+                {/* Logout */}
+                <button
+                  className="logout-btn"
+                  onClick={handleLogout}
+                >
                   Logout
                 </button>
+
               </div>
             )}
           </div>
@@ -89,9 +103,12 @@ const ProfileNavbar = ({
         )}
       </div>
 
-      {/* Full Image */}
-      {showImage && (
-        <div className="image-modal" onClick={() => setShowImage(false)}>
+      {/* Full Image Preview */}
+      {showImage && user?.profilePhoto && (
+        <div
+          className="image-modal"
+          onClick={() => setShowImage(false)}
+        >
           <img
             src={user.profilePhoto}
             alt="Full Profile"

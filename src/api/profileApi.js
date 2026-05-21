@@ -1,3 +1,5 @@
+import { authFetch } from "../utils/auth";
+
 export const getProfile = async () => {
 
   const token = localStorage.getItem("token");
