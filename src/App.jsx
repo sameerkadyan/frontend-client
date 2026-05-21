@@ -6,16 +6,16 @@ import {
   Route
 } from "react-router-dom";
 
-import Home from "./pages/Home";
+import Home from "./layouts/MainLayout";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
-import VerifyOTP from "./pages/VerifyOTP";
+import VerifyOTP from "./pages/auth/VerifyOTP";
 
-import Profile from "./pages/Profile";
+import Profile from "./pages/student/Profile";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import Students from "./pages/Students";
+import Students from "./pages/student/Students";
 
 function App() {
 

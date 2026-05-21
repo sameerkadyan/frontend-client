@@ -9,7 +9,7 @@ import CTA from "../components/CTA";
 import ContactNewsletter from "../components/ContactNewsletter";
 import Footer from "../components/Footer";
 
-function Home(){
+function MainLayout(){
     return(
         <>
             <Navbar />
@@ -25,4 +25,4 @@ function Home(){
     );
 }
 
-export default Home;
+export default MainLayout;
