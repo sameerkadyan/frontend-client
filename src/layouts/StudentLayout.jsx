@@ -1,8 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import ProfileNavbar from "../components/ProfileNavbar";
-
+import ProfileNavbar from "../components/profile/ProfileNavbar";
 const StudentLayout = () => {
   return (
     <div className="student-layout">

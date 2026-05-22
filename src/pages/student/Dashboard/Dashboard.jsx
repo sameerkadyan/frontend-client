@@ -1,6 +1,7 @@
 import React from "react";
+import DashboardCards from "./DashboardCard";
+// import ProfileNavbar from "../../../components/profile/ProfileNavbar";
 import "../../../style/dashboard.css";
-import DashboardCards from "./DashboardCards";
 
 const Dashboard = () => {
   return (

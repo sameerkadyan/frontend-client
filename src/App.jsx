@@ -18,6 +18,7 @@ import Profile from "./pages/student/Profile";
 import Students from "./pages/student/Students";
 
 import ProtectedRoute from "./components/ProtectedRoute";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
 
         {/* Public Layout */}
         <Route element={<MainLayout />}>
+
+        <Route path="/" element={<Home />}/>
 
           <Route path="/login" element={<Login />} />
 
