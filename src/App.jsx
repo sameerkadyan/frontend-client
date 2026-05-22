@@ -29,7 +29,7 @@ function App() {
         <Route path="/verify-otp" element={<VerifyOTP />} />
 
         <Route
-          path="/students"
+          path="/student"
           element={
             <ProtectedRoute>
               <StudentLayout />
