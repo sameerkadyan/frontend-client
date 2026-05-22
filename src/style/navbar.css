@@ -1,8 +1,6 @@
-/* =========================================
-   PROFESSIONAL RESPONSIVE NAVBAR CSS
-========================================= */
+/* navbar.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 *{
   margin: 0;
@@ -12,252 +10,124 @@
 
 body{
   font-family: "Poppins", sans-serif;
-  background: #f4f7fb;
 }
 
-/* =========================================
-   NAVBAR
-========================================= */
+/* =========================
+   Navbar
+========================= */
 
 .navbar{
   width: 100%;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
-  left: 0;
-  z-index: 999;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  z-index: 1000;
 }
 
-/* =========================================
-   CONTAINER
-========================================= */
+/* =========================
+   Navbar Container
+========================= */
 
 .navbar-container{
+  max-width: 1200px;
   width: 100%;
-  max-width: 1400px;
 
   margin: auto;
-  padding: 14px 24px;
+  padding: 14px 20px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  gap: 20px;
 }
 
-/* =========================================
-   LOGO
-========================================= */
+/* =========================
+   Logo
+========================= */
 
 .logo{
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #111827;
-
-  letter-spacing: 0.5px;
-  white-space: nowrap;
-
   cursor: pointer;
-  transition: 0.3s ease;
 }
 
-.logo:hover{
-  color: #2563eb;
-}
-
-/* =========================================
-   RIGHT NAV SECTION
-========================================= */
+/* =========================
+   Right Buttons
+========================= */
 
 .nav-right{
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
-
-/* remove default link style */
 
 .nav-right a{
   text-decoration: none;
 }
 
-/* =========================================
-   BUTTONS
-========================================= */
+/* =========================
+   Buttons
+========================= */
 
 .login-btn,
 .register-btn{
+  padding: 10px 18px;
   border: none;
-  outline: none;
+  border-radius: 8px;
 
-  padding: 12px 22px;
-
-  border-radius: 12px;
-
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
 
   cursor: pointer;
-
-  transition: all 0.3s ease;
-
-  white-space: nowrap;
+  transition: 0.3s ease;
 }
 
-/* =========================================
-   LOGIN BUTTON
-========================================= */
+/* Login Button */
 
 .login-btn{
   background: transparent;
+  border: 1px solid #2563eb;
   color: #2563eb;
-
-  border: 2px solid #2563eb;
 }
 
 .login-btn:hover{
   background: #2563eb;
   color: white;
-
-  transform: translateY(-2px);
-
-  box-shadow: 0 8px 18px rgba(37,99,235,0.25);
 }
 
-/* =========================================
-   REGISTER BUTTON
-========================================= */
+/* Register Button */
 
 .register-btn{
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: #2563eb;
   color: white;
-
-  box-shadow: 0 4px 12px rgba(37,99,235,0.2);
 }
 
 .register-btn:hover{
-  transform: translateY(-2px);
-
-  box-shadow: 0 10px 22px rgba(37,99,235,0.35);
+  background: #1d4ed8;
 }
 
-/* =========================================
-   TABLET RESPONSIVE
-========================================= */
+/* =========================
+   Mobile Responsive
+========================= */
 
-@media screen and (max-width: 768px){
-
-  .navbar-container{
-    padding: 12px 18px;
-  }
-
-  .nav-right{
-    gap: 10px;
-  }
-
-  .login-btn,
-  .register-btn{
-    padding: 10px 16px;
-    font-size: 0.88rem;
-  }
-}
-
-/* =========================================
-   MOBILE RESPONSIVE
-========================================= */
-
-@media screen and (max-width: 550px){
+@media (max-width: 600px){
 
   .navbar-container{
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 14px;
-
-    padding: 14px 16px;
+    padding: 12px 14px;
   }
 
   .logo{
-    text-align: center;
-    width: 100%;
+    font-size: 1.2rem;
   }
 
   .nav-right{
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    gap: 12px;
-  }
-
-  .nav-right a{
-    width: 100%;
+    gap: 8px;
   }
 
   .login-btn,
   .register-btn{
-    width: 100%;
-
-    padding: 12px;
-
-    font-size: 0.9rem;
-
-    border-radius: 10px;
-  }
-}
-
-/* =========================================
-   EXTRA SMALL DEVICES
-========================================= */
-
-@media screen and (max-width: 360px){
-
-  .navbar-container{
-    padding: 12px;
-  }
-
-  .logo{
-    font-size: 1.1rem;
-  }
-
-  .nav-right{
-    grid-template-columns: 1fr;
-  }
-
-  .login-btn,
-  .register-btn{
-    font-size: 0.85rem;
-    padding: 11px;
-  }
-}
-
-/* =========================================
-   LARGE SCREENS
-========================================= */
-
-@media screen and (min-width: 1600px){
-
-  .navbar-container{
-    max-width: 1600px;
-  }
-
-  .logo{
-    font-size: 2rem;
-  }
-
-  .login-btn,
-  .register-btn{
-    padding: 14px 26px;
-    font-size: 1rem;
+    padding: 8px 14px;
+    font-size: 0.8rem;
   }
 }
