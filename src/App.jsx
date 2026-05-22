@@ -3,9 +3,11 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  useLocation,
 } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import ProfileNavbar from "./components/profile/ProfileNavbar";
 
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -18,11 +20,19 @@ import Students from "./pages/student/Students";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 
-function App() {
-  return (
-    <BrowserRouter>
+function AppContent() {
+  const location = useLocation();
 
-      <Navbar />
+  const isStudentPage =
+    location.pathname.startsWith("/student");
+
+  return (
+    <>
+      {isStudentPage ? (
+        <ProfileNavbar />
+      ) : (
+        <Navbar />
+      )}
 
       <Routes>
 
@@ -64,7 +74,14 @@ function App() {
         />
 
       </Routes>
+    </>
+  );
+}
 
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }
