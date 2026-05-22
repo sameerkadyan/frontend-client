@@ -1,5 +1,4 @@
 import React from "react";
-import ProfileNavbar from "../../components/profile/ProfileNavbar";
 import { useProfile } from "../../hooks/useProfile";
 
 import "../../style/profile.css";
@@ -7,7 +6,11 @@ import "../../style/profile.css";
 const Profile = () => {
   const profile = useProfile();
 
-  return <ProfileNavbar {...profile} />;
+  return (
+    <div className="profile-page">
+      <h1>Profile Page</h1>
+    </div>
+  );
 };
 
 export default Profile;
