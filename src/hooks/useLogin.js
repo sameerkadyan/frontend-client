@@ -36,7 +36,7 @@ export const useLogin = () => {
         // localStorage.setItem("token", data.token);
         setToken(data.data.token);
 
-        navigate("/student/dashboard");
+        navigate("/student/students");
       } else {
         alert(data.message || "Login failed ❌");
       }
