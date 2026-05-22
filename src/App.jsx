@@ -1,13 +1,11 @@
 import React from "react";
-
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
 
-import MainLayout from "./layouts/MainLayout";
-import StudentLayout from "./layouts/StudentLayout";
+import Navbar from "./components/Navbar";
 
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -24,46 +22,46 @@ function App() {
   return (
     <BrowserRouter>
 
+      <Navbar />
+
       <Routes>
 
-        {/* Public Layout */}
-        <Route element={<MainLayout />}>
+        {/* Public Routes */}
+        <Route path="/" element={<Home />} />
 
-        <Route path="/" element={<Home />}/>
+        <Route path="/login" element={<Login />} />
 
-          <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-          <Route path="/register" element={<Register />} />
+        <Route path="/verify-otp" element={<VerifyOTP />} />
 
-          <Route path="/verify-otp" element={<VerifyOTP />} />
-
-        </Route>
-
-        {/* Student Protected Layout */}
+        {/* Protected Routes */}
         <Route
+          path="/student/dashboard"
           element={
             <ProtectedRoute>
-              <StudentLayout />
+              <Dashboard />
             </ProtectedRoute>
           }
-        >
+        />
 
-          <Route
-            path="/student/dashboard"
-            element={<Dashboard />}
-          />
+        <Route
+          path="/student/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route
-            path="/student/profile"
-            element={<Profile />}
-          />
-
-          <Route
-            path="/student/students"
-            element={<Students />}
-          />
-
-        </Route>
+        <Route
+          path="/student/students"
+          element={
+            <ProtectedRoute>
+              <Students />
+            </ProtectedRoute>
+          }
+        />
 
       </Routes>
 
