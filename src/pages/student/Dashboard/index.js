@@ -1,1 +1,1 @@
-import Dashboard from "../pages/student/Dashboard";
+export { default } from "./Dashboard";
