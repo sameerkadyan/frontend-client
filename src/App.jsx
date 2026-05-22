@@ -3,67 +3,64 @@ import React from "react";
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 
-import Home from "./layouts/MainLayout";
+import MainLayout from "./layouts/MainLayout";
+import StudentLayout from "./layouts/StudentLayout";
+
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import VerifyOTP from "./pages/auth/VerifyOTP";
 
+import Dashboard from "./pages/student/Dashboard";
 import Profile from "./pages/student/Profile";
+import Students from "./pages/student/Students";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import Students from "./pages/student/Students";
-
 function App() {
-
   return (
-
     <BrowserRouter>
 
       <Routes>
 
-        {/* Public Routes */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
+        {/* Public Layout */}
+        <Route element={<MainLayout />}>
 
-        <Route
-          path="/login"
-          element={<Login />}
-        />
+          <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/register"
-          element={<Register />}
-        />
+          <Route path="/register" element={<Register />} />
 
-        <Route
-          path="/verify-otp"
-          element={<VerifyOTP />}
-        />
+          <Route path="/verify-otp" element={<VerifyOTP />} />
 
-        {/* Protected Routes */}
+        </Route>
+
+        {/* Student Protected Layout */}
         <Route
-          path="/profile"
           element={
             <ProtectedRoute>
-              <Profile />
+              <StudentLayout />
             </ProtectedRoute>
           }
-        />
+        >
 
-        <Route
-          path="/students"
-          element={
-            <ProtectedRoute>
-              <Students />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/student/dashboard"
+            element={<Dashboard />}
+          />
+
+          <Route
+            path="/student/profile"
+            element={<Profile />}
+          />
+
+          <Route
+            path="/student/students"
+            element={<Students />}
+          />
+
+        </Route>
 
       </Routes>
 
