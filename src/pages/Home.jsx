@@ -8,11 +8,13 @@ import Testimonials from "../components/Testimonials";
 import CTA from "../components/CTA";
 import ContactNewsletter from "../components/ContactNewsletter";
 import Footer from "../components/Footer";
+import ProfileNavbar from "../components/profile/ProfileNavbar";
 
 function Home(){
     return(
         <>
-            <Navbar />
+            {/* <Navbar /> */}
+            <ProfileNavbar/>
             <Hero />
             <Features />
             <WhyChooseUs/>
