@@ -1,11 +1,11 @@
 import React from "react";
-import Card from "./Card";
 import "../style/testimonials.css";
 
 const testimonialsData = [
   {
     name: "Rohit Sharma",
-    review: "Itna smooth aur perfect to mera pull shot bhi nahi jitna isak UI kya baat hai ladke",
+    review:
+      "Itna smooth aur perfect to mera pull shot bhi nahi jitna isak UI kya baat hai ladke",
     rating: "⭐⭐⭐⭐⭐",
   },
   {
@@ -15,7 +15,7 @@ const testimonialsData = [
   },
   {
     name: "Donald Trump",
-    review: "Not bad... Not bad... Sameer You are doing very well ",
+    review: "Not bad... Not bad... Sameer You are doing very well",
     rating: "⭐⭐⭐⭐",
   },
 ];
@@ -27,11 +27,11 @@ const Testimonials = () => {
 
       <div className="testimonials-container">
         {testimonialsData.map((item, index) => (
-          <Card key={index}>
+          <div className="testimonial-card" key={index}>
             <p className="review">"{item.review}"</p>
             <h4 className="name">- {item.name}</h4>
             <div className="rating">{item.rating}</div>
-          </Card>
+          </div>
         ))}
       </div>
     </section>

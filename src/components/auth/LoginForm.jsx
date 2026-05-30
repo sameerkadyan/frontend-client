@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Card from "../Card";
 
 const LoginForm = ({ form, loading, handleChange, handleLogin }) => {
   return (
     <div className="login-wrapper">
-      <Card title="Welcome Back 👋" description="Login to your account">
+
+      <div className="login-card">
+
+        <h2 className="login-title">Welcome Back 👋</h2>
+
+        <p className="login-description">
+          Login to your account
+        </p>
 
         <input
           type="email"
@@ -25,18 +31,23 @@ const LoginForm = ({ form, loading, handleChange, handleLogin }) => {
           className="login-input"
         />
 
-        <button className="login-btn" onClick={handleLogin} disabled={loading}>
-          {loading ? "Logging in ..." : "Login"}
+        <button
+          className="login-btn"
+          onClick={handleLogin}
+          disabled={loading}
+        >
+          {loading ? "Logging in..." : "Login"}
         </button>
 
         <p className="login-footer">
           Don't have an account?{" "}
-          <span>
-            <Link className="register-login-btn" to="/register">Register</Link>
-          </span>
+          <Link className="register-login-btn" to="/register">
+            Register
+          </Link>
         </p>
 
-      </Card>
+      </div>
+
     </div>
   );
 };

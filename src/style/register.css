@@ -1,157 +1,82 @@
-/* =========================
-   Register Page Styling
-========================= */
-
 .register-wrapper {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+  background: #f4f7fb;
   padding: 20px;
-  font-family: "Poppins", sans-serif;
 }
 
-/* Card Styling */
-.register-wrapper .card {
+.register-card {
   width: 100%;
-  max-width: 450px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-  border-radius: 22px;
-  padding: 38px 32px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-  color: #fff;
-  animation: slideUp 0.7s ease;
+  max-width: 420px;
+  background: white;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-/* Heading */
-.register-wrapper .card h2 {
+.register-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 28px;
   font-weight: 700;
-  margin-bottom: 10px;
-  color: white;
+  color: #222;
 }
 
-.register-wrapper .card p {
+.register-description {
   text-align: center;
-  color: #cbd5e1;
-  margin-bottom: 24px;
+  color: #666;
+  margin-bottom: 10px;
 }
 
-/* Inputs */
 .register-input {
   width: 100%;
-  padding: 14px 16px;
-  margin-bottom: 18px;
-  border: 1px solid transparent;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
-  font-size: 1rem;
+  padding: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  font-size: 15px;
   outline: none;
-  transition: all 0.3s ease;
-}
-
-.register-input::placeholder {
-  color: #cbd5e1;
+  transition: 0.3s;
+  box-sizing: border-box;
 }
 
 .register-input:focus {
-  border-color: #8b5cf6;
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 0 12px rgba(139, 92, 246, 0.45);
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
-/* Button */
 .register-btn {
   width: 100%;
   padding: 14px;
   border: none;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  border-radius: 10px;
+  background: #4f46e5;
   color: white;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .register-btn:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #7c3aed, #6d28d9);
-  box-shadow: 0 10px 22px rgba(124, 58, 237, 0.4);
+  background: #4338ca;
 }
 
-/* Footer */
 .register-footer {
-  margin-top: 22px;
   text-align: center;
-  color: #e2e8f0;
-  font-size: 0.95rem;
+  color: #555;
 }
 
 .login-register-btn {
-  color: #a78bfa;
-  text-decoration: none;
+  color: #4f46e5;
   font-weight: 600;
-  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .login-register-btn:hover {
-  color: #c4b5fd;
   text-decoration: underline;
-}
-
-/* Animation */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
-   Responsive Design
-========================= */
-
-@media (max-width: 768px) {
-  .register-wrapper .card {
-    padding: 30px 24px;
-  }
-
-  .register-wrapper .card h2 {
-    font-size: 1.7rem;
-  }
-
-  .register-input,
-  .register-btn {
-    padding: 12px;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .register-wrapper {
-    padding: 14px;
-  }
-
-  .register-wrapper .card {
-    padding: 24px 18px;
-    border-radius: 18px;
-  }
-
-  .register-wrapper .card h2 {
-    font-size: 1.5rem;
-  }
-
-  .register-footer {
-    font-size: 0.85rem;
-  }
 }

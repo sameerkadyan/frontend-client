@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Card from "./Card";
 import "../style/contactNewsletter.css";
 
 const ContactNewsletter = () => {
@@ -20,9 +19,11 @@ const ContactNewsletter = () => {
       <h2 className="section-title">Stay Connected</h2>
 
       <div className="contact-container">
-        
+
         {/* Newsletter Card */}
-        <Card title="Subscribe to our Newsletter">
+        <div className="contact-card">
+          <h3>Subscribe to our Newsletter</h3>
+
           <input
             type="email"
             placeholder="Enter your email"
@@ -30,21 +31,29 @@ const ContactNewsletter = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+
           <button className="btn primary" onClick={handleSubmit}>
             Subscribe
           </button>
-        </Card>
+        </div>
 
         {/* Contact Card */}
-        <Card title="Contact Us">
+        <div className="contact-card">
+          <h3>Contact Us</h3>
+
           <input type="text" placeholder="Your Name" className="input" />
+
           <input type="email" placeholder="Your Email" className="input" />
-          <textarea placeholder="Your Message" className="input textarea" />
+
+          <textarea
+            placeholder="Your Message"
+            className="input textarea"
+          />
 
           <button className="btn primary">
             Send Message
           </button>
-        </Card>
+        </div>
 
       </div>
     </section>

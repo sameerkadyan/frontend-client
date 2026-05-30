@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Card from "./Card";
 import "../style/aboutPreview.css";
-import Preview from "../assets/preview.svg"
+import Preview from "../assets/preview.svg";
 
 const AboutPreview = () => {
   const navigate = useNavigate();
@@ -10,23 +9,30 @@ const AboutPreview = () => {
   return (
     <section className="about-preview">
       <div className="about-container">
-        
+
         {/* Left Image */}
         <div className="about-image">
-          <img
-            src={Preview}
-            alt="about"
-          />
+          <img src={Preview} alt="about" />
         </div>
 
-        {/* Right Content using Card */}
+        {/* Right Content */}
         <div className="about-content">
-          <Card
-            title="About Our Platform"
-            description="We build modern, responsive, and user-friendly web applications using powerful reusable components. Our goal is to make development faster, easier, and more efficient for everyone."
-            buttonText="Read More"
-            onButtonClick={() => navigate("/about")}
-          />
+          <div className="about-card">
+            <h2>About Our Platform</h2>
+
+            <p>
+              We build modern, responsive, and user-friendly web applications
+              using powerful reusable components. Our goal is to make
+              development faster, easier, and more efficient for everyone.
+            </p>
+
+            <button
+              className="about-btn"
+              onClick={() => navigate("/about")}
+            >
+              Read More
+            </button>
+          </div>
         </div>
 
       </div>

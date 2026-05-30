@@ -1,12 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Card from "../Card";
 
-const RegisterForm = ({ form, handleChange, handleRegister }) => {
+import "../../style/register.css";
+
+const RegisterForm = ({
+  form,
+  handleChange,
+  handleRegister,
+  role,
+}) => {
+
   return (
     <div className="register-wrapper">
-      <Card title="Create Account 🚀" description="Join us today">
 
+      <div className="register-card">
+
+        {/* TITLE */}
+        <h2 className="register-title">
+          Create {role} Account 🚀
+        </h2>
+
+        <p className="register-description">
+          Join as a {role}
+        </p>
+
+        {/* NAME */}
         <input
           type="text"
           name="name"
@@ -16,6 +34,7 @@ const RegisterForm = ({ form, handleChange, handleRegister }) => {
           className="register-input"
         />
 
+        {/* EMAIL */}
         <input
           type="email"
           name="email"
@@ -25,6 +44,7 @@ const RegisterForm = ({ form, handleChange, handleRegister }) => {
           className="register-input"
         />
 
+        {/* PASSWORD */}
         <input
           type="password"
           name="password"
@@ -34,6 +54,7 @@ const RegisterForm = ({ form, handleChange, handleRegister }) => {
           className="register-input"
         />
 
+        {/* CONFIRM PASSWORD */}
         <input
           type="password"
           name="confirmPassword"
@@ -43,18 +64,28 @@ const RegisterForm = ({ form, handleChange, handleRegister }) => {
           className="register-input"
         />
 
-        <button className="register-btn" onClick={handleRegister}>
-          Register
+        {/* BUTTON */}
+        <button
+          className="register-btn"
+          onClick={handleRegister}
+        >
+          Register as {role}
         </button>
 
+        {/* LOGIN */}
         <p className="register-footer">
           Already have an account?{" "}
-          <span>
-            <Link className="login-register-btn" to="/login">Login</Link>
-          </span>
+
+          <Link
+            to="/login"
+            className="login-register-btn"
+          >
+            Login
+          </Link>
         </p>
 
-      </Card>
+      </div>
+
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   BrowserRouter,
   Routes,
@@ -6,33 +7,81 @@ import {
 } from "react-router-dom";
 
 import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-import VerifyOTP from "./pages/auth/VerifyOTP";
 
-import StudentLayout from "./layouts/StudentLayout";
+import StudentRegister
+from "./pages/student/StudentRegister";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+import TeacherRegister
+from "./pages/teacher/TeacherRegister";
+
+import VerifyOTP
+from "./pages/auth/VerifyOTP";
+
+import StudentLayout
+from "./layouts/StudentLayout";
+
+import TeacherLayout
+from "./layouts/TeacherLayout";
+
+import ProtectedRoute
+from "./components/ProtectedRoute";
+
 import Home from "./pages/Home";
 
 function App() {
+
   return (
+
     <BrowserRouter>
 
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        {/* HOME */}
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-        <Route path="/login" element={<Login />} />
+        {/* LOGIN */}
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
-        <Route path="/register" element={<Register />} />
+        {/* STUDENT REGISTER */}
+        <Route
+          path="/student/register"
+          element={<StudentRegister />}
+        />
 
-        <Route path="/verify-otp" element={<VerifyOTP />} />
+        {/* TEACHER REGISTER */}
+        <Route
+          path="/teacher/register"
+          element={<TeacherRegister />}
+        />
 
+        {/* VERIFY OTP */}
+        <Route
+          path="/verify-otp"
+          element={<VerifyOTP />}
+        />
+
+        {/* STUDENT DASHBOARD */}
         <Route
           path="/student"
           element={
             <ProtectedRoute>
               <StudentLayout />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* TEACHER DASHBOARD */}
+        <Route
+          path="/teacher"
+          element={
+            <ProtectedRoute>
+              <TeacherLayout />
             </ProtectedRoute>
           }
         />

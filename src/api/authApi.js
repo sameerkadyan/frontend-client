@@ -18,7 +18,7 @@ export const loginUser = async (email, password) => {
 // Register API
 
 
-export const registerUser = async (name, email, password) => {
+export const registerUser = async (name, email, password, role) => {
   const response = await fetch(
     "https://backend-server-arp0.onrender.com/api/auth/register",
     {
@@ -26,7 +26,7 @@ export const registerUser = async (name, email, password) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ name, email, password, role }),
     }
   );
 

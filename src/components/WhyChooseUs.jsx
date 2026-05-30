@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "./Card";
 import "../style/whychooseus.css";
 
 const benefitsData = [
@@ -28,11 +27,10 @@ const WhyChooseUs = () => {
 
       <div className="why-container">
         {benefitsData.map((item, index) => (
-          <Card
-            key={index}
-            title={item.title}
-            description={item.description}
-          />
+          <div className="why-card" key={index}>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
         ))}
       </div>
     </section>
