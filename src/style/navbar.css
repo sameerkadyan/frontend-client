@@ -1,133 +1,164 @@
-/* navbar.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-*{
+/* RESET */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
-  font-family: "Poppins", sans-serif;
-}
-
-/* =========================
-   Navbar
-========================= */
-
-.navbar{
+/* NAVBAR */
+.navbar {
   width: 100%;
   background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* =========================
-   Navbar Container
-========================= */
-
-.navbar-container{
-  max-width: 1200px;
-  width: 100%;
-
+.navbar-container {
+  max-width: 1300px;
   margin: auto;
-  padding: 14px 20px;
+  padding: 15px 30px;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-/* =========================
-   Logo
-========================= */
-
-.logo{
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111827;
+/* LOGO */
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #2563eb;
   cursor: pointer;
+  letter-spacing: 0.5px;
 }
 
-/* =========================
-   Right Buttons
-========================= */
-
-.nav-right{
+/* RIGHT SIDE */
+.nav-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
 }
 
-.nav-right a{
-  text-decoration: none;
+/* DROPDOWN */
+.dropdown {
+  position: relative;
 }
 
-/* =========================
-   Buttons
-========================= */
-
-.login-btn,
-.register-btn{
-  padding: 10px 18px;
+.dropdown-btn {
   border: none;
+  outline: none;
+  padding: 10px 22px;
   border-radius: 8px;
-
-  font-size: 0.9rem;
-  font-weight: 500;
-
+  background: #f3f4f6;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* Login Button */
-
-.login-btn{
-  background: transparent;
-  border: 1px solid #2563eb;
-  color: #2563eb;
+.dropdown-btn:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px);
 }
 
-.login-btn:hover{
+/* REGISTER BUTTON */
+.register {
   background: #2563eb;
   color: white;
 }
 
-/* Register Button */
-
-.register-btn{
-  background: #2563eb;
-  color: white;
-}
-
-.register-btn:hover{
+.register:hover {
   background: #1d4ed8;
 }
 
-/* =========================
-   Mobile Responsive
-========================= */
+/* DROPDOWN MENU */
+.dropdown-content {
+  position: absolute;
+  top: 120%;
+  right: 0;
 
-@media (max-width: 600px){
+  min-width: 220px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
 
-  .navbar-container{
-    padding: 12px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition: all 0.3s ease;
+}
+
+/* SHOW ON HOVER */
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+  background: #eff6ff;
+  color: #2563eb;
+  padding-left: 24px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 15px;
   }
 
-  .logo{
-    font-size: 1.2rem;
+  .logo {
+    font-size: 1.3rem;
   }
 
-  .nav-right{
-    gap: 8px;
+  .nav-right {
+    gap: 10px;
   }
 
-  .login-btn,
-  .register-btn{
-    padding: 8px 14px;
-    font-size: 0.8rem;
+  .dropdown-btn {
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+
+  .dropdown-content {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .dropdown-content {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+  }
+
+  .dropdown:hover .dropdown-content {
+    transform: translateX(-50%) translateY(0);
   }
 }

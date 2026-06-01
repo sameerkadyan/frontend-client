@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
-
 import "../style/navbar.css";
 
 export default function Navbar() {
-
   return (
-
     <nav className="navbar">
-
       <div className="navbar-container">
 
         {/* LOGO */}
@@ -18,31 +14,32 @@ export default function Navbar() {
         {/* RIGHT SIDE */}
         <div className="nav-right">
 
-          {/* LOGIN */}
-          <Link to="/login">
-            <button className="login-btn">
-              Login
+          {/* LOGIN DROPDOWN */}
+          <div className="dropdown">
+            <button className="dropdown-btn">
+              Login ▾
             </button>
-          </Link>
 
-          {/* STUDENT REGISTER */}
-          <Link to="/student/register">
-            <button className="register-btn">
-              Student Register
-            </button>
-          </Link>
+            <div className="dropdown-content">
+              <Link to="/student/login">Student Login</Link>
+              <Link to="/teacher/login">Teacher Login</Link>
+            </div>
+          </div>
 
-          {/* TEACHER REGISTER */}
-          <Link to="/teacher/register">
-            <button className="register-btn">
-              Teacher Register
+          {/* REGISTER DROPDOWN */}
+          <div className="dropdown">
+            <button className="dropdown-btn register">
+              Register ▾
             </button>
-          </Link>
+
+            <div className="dropdown-content">
+              <Link to="/student/register">Student Register</Link>
+              <Link to="/teacher/register">Teacher Register</Link>
+            </div>
+          </div>
 
         </div>
-
       </div>
-
     </nav>
   );
 }
