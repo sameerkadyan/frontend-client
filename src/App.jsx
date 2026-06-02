@@ -44,7 +44,7 @@ function App() {
 
         {/* LOGIN */}
         <Route
-          path="/login"
+          path="/student/login"
           element={<Login />}
         />
 
