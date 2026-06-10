@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Login from "./pages/auth/Login";
+import StudentLogin from "./pages/student/StudentLogin";
 
 import StudentRegister
 from "./pages/student/StudentRegister";
@@ -27,6 +27,7 @@ import ProtectedRoute
 from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
+import TeacherLogin from "./pages/teacher/TeacherLogin";
 
 function App() {
 
@@ -45,7 +46,12 @@ function App() {
         {/* LOGIN */}
         <Route
           path="/student/login"
-          element={<Login />}
+          element={<StudentLogin />}
+        />
+
+        <Route
+          path="/teacher/login"
+          element={<TeacherLogin/>}
         />
 
         {/* STUDENT REGISTER */}

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/authApi";
 import { setToken } from "../utils/auth";
 
-export const useLogin = () => {
+export const useLogin = (role) => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({

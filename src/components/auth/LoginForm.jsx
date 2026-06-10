@@ -1,18 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LoginForm = ({ form, loading, handleChange, handleLogin }) => {
+import "../../style/login.css";
+
+const LoginForm = ({
+  form,
+  loading,
+  handleChange,
+  handleLogin,
+  role,
+}) => {
   return (
     <div className="login-wrapper">
-
       <div className="login-card">
 
-        <h2 className="login-title">Welcome Back 👋</h2>
+        {/* TITLE */}
+        <h2 className="login-title">
+          Welcome Back {role} 👋
+        </h2>
 
         <p className="login-description">
-          Login to your account
+          Login to your account as {role}
         </p>
 
+        {/* EMAIL */}
         <input
           type="email"
           name="email"
@@ -22,6 +33,7 @@ const LoginForm = ({ form, loading, handleChange, handleLogin }) => {
           className="login-input"
         />
 
+        {/* PASSWORD */}
         <input
           type="password"
           name="password"
@@ -31,6 +43,7 @@ const LoginForm = ({ form, loading, handleChange, handleLogin }) => {
           className="login-input"
         />
 
+        {/* BUTTON */}
         <button
           className="login-btn"
           onClick={handleLogin}
@@ -39,15 +52,18 @@ const LoginForm = ({ form, loading, handleChange, handleLogin }) => {
           {loading ? "Logging in..." : "Login"}
         </button>
 
+        {/* REGISTER */}
         <p className="login-footer">
           Don't have an account?{" "}
-          <Link className="register-login-btn" to="/register">
+          <Link
+            to="/register"
+            className="register-login-btn"
+          >
             Register
           </Link>
         </p>
 
       </div>
-
     </div>
   );
 };
