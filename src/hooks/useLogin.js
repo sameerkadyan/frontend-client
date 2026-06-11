@@ -36,7 +36,7 @@ export const useLogin = (role) => {
         // localStorage.setItem("token", data.token);
         setToken(data.data.token);
 
-        navigate("/student");
+        navigate(role === "teacher"? "student" : "/student");
       } else {
         alert(data.message || "Login failed ❌");
       }
