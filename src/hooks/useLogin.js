@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/authApi";
-import { setToken } from "../utils/auth";
+import { setAuth } from "../utils/auth";
 
 export const useLogin = (role) => {
   const navigate = useNavigate();
@@ -33,8 +33,10 @@ export const useLogin = (role) => {
       if (response.ok) {
         alert("Login Successful 🎉");
 
-        // localStorage.setItem("token", data.token);
-        setToken(data.data.token);
+        setAuth(
+          data.data.token,
+          data.data.role
+        );
 
         navigate(role === "teacher" ? "/teacher" : "/student");
       } else {

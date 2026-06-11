@@ -1,17 +1,17 @@
-import { authFetch } from "../utils/auth";
+import { authFetch, getRole, getToken } from "../utils/auth";
 
 export const getProfile = async () => {
+  const role = getRole();
 
-  const token = localStorage.getItem("token");
-   console.log("TOKEN:", token);
+  const endpoint =
+    role === "teacher"
+      ? "/api/teachers/profile"
+      : "/api/students/profile";
 
-  return fetch(
-    "https://backend-server-arp0.onrender.com/api/students/profile",
+  return authFetch(
+    `https://backend-server-arp0.onrender.com${endpoint}`,
     {
       method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     }
   );
 };

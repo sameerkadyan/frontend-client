@@ -1,21 +1,25 @@
 // ==============================
 // AUTH UTILITY (JWT BASED)
 // ==============================
+export const setAuth = (token, role) => {
+  localStorage.setItem("token", token);
+  localStorage.setItem("role", role);
+};
+
 
 // 🔐 Get Token
 export const getToken = () => {
   return localStorage.getItem("token");
 };
+export const getRole = () => {
+  return localStorage.getItem("role");
+}
 
-// 💾 Save Token
-export const setToken = (token) => {
-  localStorage.setItem("token", token);
-};
-
-// 🚪 Logout
 export const logout = () => {
   localStorage.removeItem("token");
-};
+  localStorage.removeItem("role");
+}
+
 
 // ✅ Check if logged in
 export const isLoggedIn = () => {
