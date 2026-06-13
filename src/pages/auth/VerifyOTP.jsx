@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../style/VerifyOTP.css"
 
-const VerifyOTP = () => {
+const VerifyOTP = (role) => {
 
   const [otp, setOtp] = useState("");
 
@@ -38,7 +38,7 @@ const VerifyOTP = () => {
 
       alert(data.message);
 
-      navigate("/login");
+      navigate(role === "teacher" ? "/teacher" : "/student");
 
     } catch (error) {
 
