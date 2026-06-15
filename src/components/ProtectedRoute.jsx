@@ -6,7 +6,7 @@ const ProtectedRoute = ({ children }) => {
   const token = getToken();
 
   if (!token) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/teacher/login" replace />;
   }
 
   return children;
