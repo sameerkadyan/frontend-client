@@ -9,22 +9,22 @@ import {
 import StudentLogin from "./pages/student/StudentLogin";
 
 import StudentRegister
-from "./pages/student/StudentRegister";
+  from "./pages/student/StudentRegister";
 
 import TeacherRegister
-from "./pages/teacher/TeacherRegister";
+  from "./pages/teacher/TeacherRegister";
 
 import VerifyOTP
-from "./pages/auth/VerifyOTP";
+  from "./pages/auth/VerifyOTP";
 
 import StudentLayout
-from "./layouts/StudentLayout";
+  from "./layouts/StudentLayout";
 
 import TeacherLayout
-from "./layouts/TeacherLayout";
+  from "./layouts/TeacherLayout";
 
 import ProtectedRoute
-from "./components/ProtectedRoute";
+  from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
 import TeacherLogin from "./pages/teacher/TeacherLogin";
@@ -51,7 +51,7 @@ function App() {
 
         <Route
           path="/teacher/login"
-          element={<TeacherLogin/>}
+          element={<TeacherLogin />}
         />
 
         {/* STUDENT REGISTER */}
@@ -76,7 +76,7 @@ function App() {
         <Route
           path="/student"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute allowedRole="student">
               <StudentLayout />
             </ProtectedRoute>
           }
@@ -86,7 +86,7 @@ function App() {
         <Route
           path="/teacher"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute allowedRole="teacher">
               <TeacherLayout />
             </ProtectedRoute>
           }
