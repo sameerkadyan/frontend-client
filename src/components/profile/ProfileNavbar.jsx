@@ -34,7 +34,7 @@ const ProfileNavbar = ({
                 />
               ) : (
                 <div className="profile-avatar">
-                  {user.name.charAt(0)}
+                  {user?.name?.charAt(0) || "T"}
                 </div>
               )}
             </div>
@@ -56,13 +56,17 @@ const ProfileNavbar = ({
                       />
                     ) : (
                       <div className="dropdown-avatar fallback-avatar">
-                        {user.name.charAt(0)}
+                        {user?.name?.charAt(0) || "T"}
                       </div>
                     )}
 
                     <div>
-                      <h4 className="profile-name">{user.name}</h4>
-                      <p className="profile-email">{user.email}</p>
+                      <h4 className="profile-name">
+                        {user?.name || "Teacher"}
+                      </h4>
+                      <p className="profile-email">
+                        {user?.email || "No Email"}
+                      </p>
                     </div>
 
                   </div>

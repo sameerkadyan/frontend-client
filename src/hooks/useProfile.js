@@ -19,19 +19,23 @@ export const useProfile = () => {
         const res = await getProfile();
 
         if (!res.ok) {
-          throw new Error("Unauthorized");
+          throw new Error("Failed to fetch profile");
         }
 
         const data = await res.json();
 
-        console.log(data);
+        console.log("PROFILE DATA:", data);
 
-        // FIX HERE
-        setUser(data.data);
+        setUser({
+          ...data.data.userId,
+          profilePhoto: data.data.profilePhoto || null,
+          subject: data.data.subject,
+          experience: data.data.experience,
+        });
 
       } catch (error) {
-        console.log(error);
-        navigate("/login");
+        console.error(error);
+        navigate("/");
       } finally {
         setLoading(false);
       }
