@@ -11,6 +11,7 @@ const ProfileNavbar = ({
   handleLogout,
   loading,
 }) => {
+  console.log("PROFILE NAVBAR USER:", user);
   if (loading) return <p className="loading">Loading...</p>;
 
   return (
