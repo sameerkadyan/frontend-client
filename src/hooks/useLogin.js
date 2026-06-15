@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/authApi";
 import { setAuth } from "../utils/auth";
 
-export const useLogin = (role) => {
+export const useLogin = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -14,36 +14,61 @@ export const useLogin = (role) => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleLogin = async () => {
     if (!form.email || !form.password) {
-      alert("Please fill all field!");
+      alert("Please fill all fields!");
       return;
     }
 
     setLoading(true);
 
     try {
-      const { response, data } = await loginUser(form.email, form.password);
+      const { response, data } = await loginUser(
+        form.email,
+        form.password
+      );
 
-      console.log(data);
-      
-      if (response.ok) {
-        alert("Login Successful 🎉");
+      console.log("Login Response:", data);
 
-        setAuth(
-          data.data.token,
-          data.data.role
-        );
-
-        navigate(role === "teacher" ? "/teacher" : "/student");
-      } else {
-        alert(data.message || "Login failed ❌");
+      if (!response.ok) {
+        alert(data?.message || "Login failed ❌");
+        return;
       }
+
+      // Adjust this if your API structure is different
+      const token = data?.data?.token;
+      const role = data?.data?.role;
+
+      console.log("Token:", token);
+      console.log("Role:", role);
+
+      if (!token || !role) {
+        alert("Invalid login response from server");
+        return;
+      }
+
+      // Save authentication data
+      setAuth(token, role);
+
+      alert("Login Successful 🎉");
+
+      // Navigate based on actual user role
+      if (role === "teacher") {
+        navigate("/teacher");
+      } else if (role === "student") {
+        navigate("/student");
+      } else {
+        navigate("/");
+      }
+
     } catch (error) {
-      console.log(error);
+      console.error("Login Error:", error);
       alert("Something went wrong!");
     } finally {
       setLoading(false);
