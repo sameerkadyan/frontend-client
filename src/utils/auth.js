@@ -45,6 +45,11 @@ export const authFetch = async (url, options = {}) => {
     ...options.headers,
   };
 
+  console.log("URL:", url);
+  console.log("TOKEN:", getToken());
+  console.log("ROLE:", getRole());
+  console.log("HEADERS:", headers);
+
   // Only add JSON content-type if NOT FormData
   if (!(options.body instanceof FormData)) {
     headers["Content-Type"] = "application/json";
@@ -54,6 +59,8 @@ export const authFetch = async (url, options = {}) => {
     ...options,
     headers,
   });
+
+  console.log("STATUS:", response.status);
 
   return response;
 };
